@@ -1,2 +1,3 @@
-node_modules/
+/home/dci-student/Desktop/CODE/backend-home/blog-backend-application/node_modules
 .env
+.gitignore
