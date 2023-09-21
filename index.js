@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express from 'express';
 import multer from 'multer';
 import jwt from 'jsonwebtoken';
@@ -15,9 +18,11 @@ import * as PostController from './controllers/PostController.js';
 import { registerValidation, loginValidation, postCreateValidation } from './validations.js';
 import handleValidationErrors from './utils/handleValidationErrors.js';
 
-mongoose.connect('mongodb+srv://sokolovoleh:20Sokolov@oleh.6z7et8v.mongodb.net/blog?retryWrites=true&w=majority',
-).then(() => console.log('DB ok'))
- .catch((err) => console.log('DB err', err))
+mongoose.connect(process.env.MONGODB_URI)
+.then(() => console.log('DB ok'))
+.catch((err) => console.log('DB err', err));
+
+
 
 const app = express();
 
